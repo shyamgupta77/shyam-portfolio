@@ -3,191 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shyam Gupta | Developer Portfolio</title>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Shyam Gupta | Professional Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#0f172a;
-    color:white;
+background:#0f0f1a;
+color:white;
+overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* ===== Animated Gradient Background ===== */
+body::before{
+content:'';
+position:fixed;
+width:200%;
+height:200%;
+top:-50%;
+left:-50%;
+background:radial-gradient(circle at 20% 30%,#ff00cc33,transparent),
+radial-gradient(circle at 80% 70%,#00ffff33,transparent),
+radial-gradient(circle at 50% 50%,#00ff8833,transparent);
+animation:moveBG 15s infinite alternate;
+z-index:-1;
+}
+
+@keyframes moveBG{
+0%{transform:translate(0,0);}
+100%{transform:translate(100px,100px);}
+}
+
+/* ===== Navbar ===== */
 nav{
-    position:fixed;
-    width:100%;
-    background:rgba(15,23,42,0.9);
-    padding:15px 50px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    backdrop-filter: blur(10px);
-    z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+z-index:1000;
+transition:0.3s;
 }
 
-nav h2{
-    color:#38bdf8;
+.logo{
+font-size:24px;
+font-weight:800;
+background:linear-gradient(45deg,#ff00cc,#00ffff,#00ff88);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+letter-spacing:3px;
 }
 
 nav ul{
-    list-style:none;
-    display:flex;
-    gap:25px;
+list-style:none;
+display:flex;
+gap:30px;
 }
 
 nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    transition:0.3s;
+color:white;
+text-decoration:none;
+position:relative;
+font-weight:500;
 }
 
-nav ul li a:hover{
-    color:#38bdf8;
+nav ul li a::after{
+content:'';
+position:absolute;
+bottom:-6px;
+left:0;
+width:0%;
+height:2px;
+background:linear-gradient(45deg,#ff00cc,#00ffff);
+transition:0.4s;
 }
 
-/* HERO SECTION */
+nav ul li a:hover::after{
+width:100%;
+}
+
+/* ===== Hamburger ===== */
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+}
+
+/* ===== Hero ===== */
 .hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
 }
 
 .hero h1{
-    font-size:50px;
+font-size:55px;
+font-weight:800;
 }
 
 .hero span{
-    color:#38bdf8;
+background:linear-gradient(45deg,#ff00cc,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-    margin-top:15px;
-    font-size:20px;
-    opacity:0.8;
+margin-top:20px;
+font-size:20px;
+opacity:0.85;
 }
 
 .btn{
-    margin-top:25px;
-    padding:12px 25px;
-    border:none;
-    background:#38bdf8;
-    color:black;
-    font-weight:600;
-    border-radius:30px;
-    cursor:pointer;
-    transition:0.3s;
+margin-top:30px;
+padding:14px 35px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff00cc,#00ffff,#00ff88);
+color:black;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
 }
 
 .btn:hover{
-    transform:scale(1.1);
+transform:scale(1.1);
+box-shadow:0 0 30px #00ffff;
 }
 
-/* SECTIONS */
+/* ===== Sections ===== */
 section{
-    padding:100px 10%;
+padding:110px 10%;
 }
 
 .section-title{
-    text-align:center;
-    font-size:35px;
-    margin-bottom:50px;
-    color:#38bdf8;
+text-align:center;
+font-size:38px;
+margin-bottom:70px;
+background:linear-gradient(45deg,#ff00cc,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-/* CARDS */
+/* ===== Cards ===== */
 .card-container{
-    display:flex;
-    flex-wrap:wrap;
-    gap:30px;
-    justify-content:center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
 }
 
 .card{
-    background:#1e293b;
-    padding:25px;
-    width:300px;
-    border-radius:15px;
-    transition:0.4s;
-    box-shadow:0 0 20px rgba(56,189,248,0.2);
+background:rgba(255,255,255,0.05);
+padding:35px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+transition:0.5s;
+position:relative;
+overflow:hidden;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 30px rgba(56,189,248,0.6);
+transform:translateY(-15px);
+box-shadow:0 0 35px #00ffff88;
 }
 
-/* SKILLS BAR */
+.card::before{
+content:'';
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(120deg,transparent,#ffffff22,transparent);
+transition:0.6s;
+}
+
+.card:hover::before{
+left:100%;
+}
+
+/* ===== Skills ===== */
 .skill{
-    margin-bottom:15px;
+margin-bottom:25px;
 }
 
 .skill-bar{
-    background:#334155;
-    height:8px;
-    border-radius:10px;
-    overflow:hidden;
+height:12px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
 }
 
 .skill-bar div{
-    height:100%;
-    background:#38bdf8;
+height:100%;
+background:linear-gradient(45deg,#ff00cc,#00ffff);
+width:0;
+transition:2s;
 }
 
-/* CONTACT */
+/* ===== Contact ===== */
 .contact-box{
-    text-align:center;
-    font-size:20px;
+text-align:center;
+font-size:20px;
 }
 
-/* FOOTER */
+/* ===== Floating Hire Button ===== */
+.floating-btn{
+position:fixed;
+bottom:30px;
+right:30px;
+padding:15px 25px;
+background:linear-gradient(45deg,#ff00cc,#00ffff);
+border-radius:50px;
+color:black;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 0 20px #00ffff88;
+transition:0.3s;
+}
+
+.floating-btn:hover{
+transform:scale(1.1);
+}
+
+/* ===== Footer ===== */
 footer{
-    text-align:center;
-    padding:20px;
-    background:#1e293b;
-    opacity:0.7;
+text-align:center;
+padding:25px;
+background:rgba(0,0,0,0.5);
 }
 
-/* SCROLL ANIMATION */
+/* ===== Scroll Reveal ===== */
 .hidden{
-    opacity:0;
-    transform:translateY(40px);
-    transition:all 1s;
+opacity:0;
+transform:translateY(50px);
+transition:1s;
 }
-
 .show{
-    opacity:1;
-    transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
-/* RESPONSIVE */
+/* ===== Responsive ===== */
 @media(max-width:768px){
-    .card-container{
-        flex-direction:column;
-        align-items:center;
-    }
+nav ul{
+position:absolute;
+top:70px;
+right:0;
+background:#111;
+flex-direction:column;
+width:200px;
+padding:20px;
+display:none;
+}
+nav ul.active{display:flex;}
+.menu-toggle{display:block;}
+.hero h1{font-size:32px;}
 }
 </style>
 </head>
+
 <body>
 
 <nav>
-<h2>Shyam Gupta</h2>
-<ul>
+<div class="logo">SHYAM GUPTA</div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<ul id="menu">
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
@@ -198,14 +293,14 @@ footer{
 <div class="hero">
 <h1>Hello, I'm <span>Shyam Gupta</span></h1>
 <p id="typing"></p>
-<a href="#projects"><button class="btn">View My Work</button></a>
+<a href="#projects"><button class="btn">Explore My Work</button></a>
 </div>
 
 <section id="about" class="hidden">
 <h2 class="section-title">About Me</h2>
 <div class="card-container">
 <div class="card">
-<p>I am a passionate student and tech enthusiast from Nepal. I am learning Python, Web Development, Ethical Hacking basics, and Video Editing. My goal is to build powerful projects and grow in the tech world.</p>
+<p>I build modern, responsive and animated websites with professional UI/UX. Passionate about Python, Web Development and creating high-quality digital experiences.</p>
 </div>
 </div>
 </section>
@@ -214,19 +309,15 @@ footer{
 <h2 class="section-title">Skills</h2>
 
 <div class="skill">Python
-<div class="skill-bar"><div style="width:80%"></div></div>
+<div class="skill-bar"><div style="width:90%"></div></div>
 </div>
 
 <div class="skill">HTML & CSS
-<div class="skill-bar"><div style="width:75%"></div></div>
-</div>
-
-<div class="skill">Video Editing
-<div class="skill-bar"><div style="width:70%"></div></div>
-</div>
-
-<div class="skill">Problem Solving
 <div class="skill-bar"><div style="width:85%"></div></div>
+</div>
+
+<div class="skill">JavaScript
+<div class="skill-bar"><div style="width:75%"></div></div>
 </div>
 
 </section>
@@ -234,65 +325,64 @@ footer{
 <section id="projects" class="hidden">
 <h2 class="section-title">Projects</h2>
 <div class="card-container">
-
 <div class="card">
-<h3>Jarvis AI Assistant</h3>
-<p>Voice controlled Python assistant with multiple automation features.</p>
+<h3>AI Assistant</h3>
+<p>Automation assistant built with Python.</p>
 </div>
-
 <div class="card">
-<h3>Personal Portfolio</h3>
-<p>Fully responsive developer portfolio website.</p>
+<h3>Portfolio System</h3>
+<p>Fully responsive animated portfolio website.</p>
 </div>
-
 <div class="card">
-<h3>HTML Practice Projects</h3>
-<p>Multiple beginner-friendly structured web projects.</p>
+<h3>Web Applications</h3>
+<p>Modern structured and optimized web projects.</p>
 </div>
-
 </div>
 </section>
 
 <section id="contact" class="hidden">
 <h2 class="section-title">Contact</h2>
 <div class="contact-box">
-📞 Phone: +977 9701392929  
-<br><br>
-Available for collaboration & learning opportunities.
+📞 +977 9701392929 <br><br>
+Available for freelance & collaboration.
 </div>
 </section>
 
+<div class="floating-btn">Hire Me</div>
+
 <footer>
-© 2026 Shyam Gupta | All Rights Reserved
+© 2026 Shyam Gupta | Professional Developer
 </footer>
 
 <script>
-// Typing Effect
-const text = "Python Learner | Future Developer | Tech Creator";
-let index = 0;
-
-function typeEffect(){
-    if(index < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 70);
-    }
+// Typing Effect Loop
+const text="Creative Developer | Problem Solver | Future Tech Leader";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,60);
 }
-typeEffect();
+}
+type();
 
-// Scroll Animation
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
+// Scroll Reveal
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
 });
+});
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
 
-document.querySelectorAll(".hidden").forEach(el=>{
-    observer.observe(el);
-});
+// Mobile Menu
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
 </script>
 
 </body>
 </html>
+
